@@ -45,5 +45,5 @@ int main()
 
 void addFriend(node* head, node*& last, string name, int age, char gender, int pRating)
 {
-
+	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 }
