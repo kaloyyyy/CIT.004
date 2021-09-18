@@ -1,5 +1,28 @@
-Testing, kalozyzxcv
+#include<iostream>
+#include<stdlib.h>
+#include<string>
+using namespace std;
 
-eyy yo keno can you see this??
+class node
+{
+public:
+	string name;
+	int age;
+	char gender;
+	int pRating;
+};
 
-testing again
+
+char menu();
+void firstFriend();
+void addFriend();
+void filterFriend();
+void viewFriend();
+
+
+int main()
+{
+	node* head = NULL;
+	node* last = NULL;
+
+}
