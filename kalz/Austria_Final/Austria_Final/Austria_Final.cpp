@@ -101,7 +101,6 @@ void firstFriend(node*& head, node*& last, string name, int age, char gender, in
 
 	head = temp;
 	last = temp;
-
 }
 
 void addFriend(node*& head, node*& last, string name, int age, char gender, int pRating)
