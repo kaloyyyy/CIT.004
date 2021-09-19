@@ -101,11 +101,11 @@ bool isEmpty(node* head)//checks if the head is empty then return boolean value 
         return false;
 }
 void firstNode(node*& head, node*& last, int number, string name)//this is only used when the node head is empty.
-{
-    node* temp = new node;
+{   node* temp = new node;
     temp->number = number;
     temp->name = name;
     temp->next_ptr = NULL;
+
     head = temp;
     last = temp;
 }
@@ -129,6 +129,9 @@ void addNode(node*& head, node*& last, int number,string name)
     system("CLS");
     cout << "---DATA SAVED---\n\n";
 }
+
+
+
 void sortList(node*&head)//sorting thing part. Yes.
 {
     int tempNum;
