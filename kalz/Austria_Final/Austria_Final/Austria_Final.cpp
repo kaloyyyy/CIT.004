@@ -16,12 +16,14 @@ public:
 
 char menu();
 bool isEmpty(node* head);
+
 void firstFriend(node*& head, node*& last, string name, int age, char gender, int pRating);
 void addFriend(node*& head, node*& last, string name, int age, char gender, int pRating);
 void filterFriend();
 void viewFriend(node* current);
 void deleteFriend();
 
+void filterGender(node*& head, node* current, char gfilter);
 
 int main()
 {
@@ -31,15 +33,32 @@ int main()
 	int age;
 	char gender;
 	int pRating;
+	char choice = 'x';
+	string eyf = "enter your friend's ";
+	do {
+		choice = menu();
+		switch (choice)
+		{
+		case 'a':
+			cout << eyf<< "name: \n";
+			getline(cin, name);
+			cout << eyf<<"age: \n";
+			cin >> age;
+			cin.ignore();
+			cout << eyf << "gender: \n";
+			cin >> gender;
+			cin.ignore();
+			cout << eyf << "Popularity Rating: \n";
+			cin >> pRating;
+			cin.ignore();
+			addFriend(head, last, name, age, gender, pRating);
+			break;
 
-	getline(cin, name);
-	cin >> age;
-	cin.ignore();
-	cin >> gender;
-	cin.ignore();
-	cin >> pRating;
-	cin.ignore();
-	addFriend(head, last, name, age, gender, pRating);
+		case 'b':
+			break;
+		}
+	} while (choice != 'e');
+
 	viewFriend(head);
 	return 0;
 
@@ -48,6 +67,11 @@ int main()
 char menu()
 {
 	char choice;
+	cout << "a. add a friend\n";
+	cout << "b. filter friends list\n";
+	cout << "c. view friend\n";
+	cout << "d. unfriend someone\n";
+	cout << "e. close the program\n";
 	cin >> choice;
 	cin.ignore();
 	return choice;
@@ -102,20 +126,47 @@ void addFriend(node*& head, node*& last, string name, int age, char gender, int 
 
 }
 
-void viewFriend(node* head)
+void viewFriend(node* current)
 {
-	if (isEmpty(head))
+	if (isEmpty(current))
 		cout << "---Your friends list is empty---\n";
 	else
 	{
 		cout << "Your\n";
-		while (head != NULL)
+		while (current != NULL)
 		{
-			cout << head->name << endl;
-			cout << head->age << endl;
-			cout << head->gender << endl;
-			cout << head->pRating << endl << endl;
-			head = head->next_ptr;
+			cout << current->name << endl;
+			cout << current->age << endl;
+			cout << current->gender << endl;
+			cout << current->pRating << endl << endl;
+			current = current->next_ptr;
 		}
 	}
 }
+
+void filterGender(node*& head, node* current, char gFilter)
+{
+	if (isEmpty(current))
+		cout << "---Your friends list is empty---\n";
+	else
+	{
+		cout << "gender filter";
+		while (current != NULL)
+		{
+			if (current->gender == gFilter)
+			{
+				cout << current->name << endl;
+				cout << current->age << endl;
+				cout << current->gender << endl;
+				cout << current->pRating << endl << endl;
+				current = current->next_ptr;
+			}
+			else
+			{//go back to this later
+
+				current = current->next_ptr;
+			}
+		}
+	}
+}
+
