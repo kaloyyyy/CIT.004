@@ -66,7 +66,7 @@ int main()
                     cin.ignore();
                     if (delNum > cnt)
                     {
-                        cout << "enter a valid number within the nodes\n";
+                      cout << "enter a valid number within the nodes\n";
                     }
                 } while (delNum > cnt);
 
